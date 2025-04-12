@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Audio a Texto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1><b>Conversor de <span class="red">audio</span> a <span class="red">texto</span></b></h1>
+        
+        <form method="POST" enctype="multipart/form-data">
+            <div class="upload-box">
+                <label for="audio">Ingrese su audio aquí:</label>
+                <input type="file" name="audio" id="audio" accept="audio/wav">
+                <button type="submit">Transcribir</button>
+            </div>
+        </form>
+        
+        {% if transcription %}
+            <div class="transcription-box">
+                <h2>Transcripción:</h2>
+                <p>{{ transcription }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
